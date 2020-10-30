@@ -16,7 +16,7 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 ## Usage
 
-1. fork本项目
+1. fork本项目，将 .github\workflows\main.yml.temp 更名为 main.yml （也可以最后一步更改）。
    
 2. 配置帐号
    
@@ -43,7 +43,8 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 4. 配置提醒方式（以下三种任选其一即可）
    
-   1. 钉钉群机器人（PC端操作）
+   <details>
+     <summary>钉钉群机器人（PC端操作）</summary>
       
       - 打开新手体验群~~或者一个课程群~~，群设置-智能群助手-添加机器人-自定义，名字随便填，安全设置选择`自定义关键词`，填`打卡`，然后下一步复制Webhook。
 
@@ -57,8 +58,11 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
          ```yml
                  # DINGTALK_TOKEN: ${{ secrets.DINGTALK_TOKEN }}
          ```
-      
-   2. 微信ServerChan推送
+   </details>
+
+
+   <details>
+     <summary>微信ServerChan推送</summary>
 
       - 前往 http://sc.ftqq.com/3.version ，按首页的提示用GitHub账号登录，绑定微信，即可获得SCKEY。
 
@@ -72,8 +76,11 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
          ```yml
                  # SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
          ```
+   </details>
 
-   3. 微信PUSHPLUS推送
+
+   <details>
+     <summary>微信PUSHPLUS推送</summary>
 
       - 前往 https://pushplus.hxtrip.com ，微信扫码，点击激活消息，复制token。
 
@@ -85,6 +92,8 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
          ```yml
                  # PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
          ```
+   </details>
+
 
 5. 测试
    
