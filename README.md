@@ -33,7 +33,7 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
    on:
       push:
          branches:
-            - main
+            - master
       schedule:
          - cron: '0 23 * * *'
    ```
