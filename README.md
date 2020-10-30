@@ -16,7 +16,7 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 ## Usage
 
-1. fork本项目，将 .github\workflows\main.yml.temp 更名为 main.yml （也可以最后一步更改）。
+1. fork本项目，将 .github\workflows\main.yml.temp 更名为 main.yml。
    
 2. 配置帐号
    
@@ -31,13 +31,11 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
    在 .github\workflows\main.yml 中更改时间：
    ```yml
    on:
-      push:
-         branches:
-            - master
+      workflow_dispatch:
       schedule:
          - cron: '0 23 * * *'
    ```
-   `0 23 * * *`表示在每天UTC 23:00，也就是北京时间7:00运行。如果你想在每天早上9:30打卡，那么就应该设置为`30 1 * * *`。详见[这里](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events)。
+   `workflow_dispatch`表示可以手动运行，`0 23 * * *`表示在每天UTC 23:00，也就是北京时间7:00运行。如果你想在每天早上9:30打卡，那么就应该设置为`30 1 * * *`。详见[这里](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#scheduled-events)。
    
    PS:经过测试，实际运行时间比设定时间晚几分钟到几十分钟，~~原因大概是白嫖的人太多，github actions的服务器不够用了。。~~
 
@@ -97,13 +95,18 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 5. 测试
    
-   由于在 .github\workflows\main.yml 中设置了代码有更新就触发运行，刚刚更改代码时可能就已经运行了几次。如果打卡成功，你将收到“打卡成功”的钉钉/微信消息，如果打卡失败或者今日已打卡，你将收到“打卡失败”。在项目的 Actions 一栏中可以看到每一次运行的log，点击右上角的 Re-run jobs 重新运行：
+   Actions - ZJU-nCov-Hitcarder - Run workflow 运行测试。如果打卡成功，你将收到“打卡成功”的钉钉/微信消息，如果打卡失败或者今日已打卡，你将收到“打卡失败”。
 
-   <img src="docs/actions_logs_1.png" width=500 height=250 img>
+   <img src="docs/manual_run.png" width=600 height=250 img>
+
+   <img src="docs/message.png" width=500 height=350 img>
+
+   <img src="docs/actions_logs_2.png" width=500 height=250 img>
+   
+   查看log：
 
    <img src="docs/actions_logs_2.png" width=500 height=250 img>
 
-   <img src="docs/message.png" width=500 height=350 img>
 
 
 ## Thanks

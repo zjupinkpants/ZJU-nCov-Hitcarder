@@ -1,9 +1,7 @@
 name: 'ZJU-nCov-Hitcarder'
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
   schedule:
     - cron: '0 23 * * *'
 
