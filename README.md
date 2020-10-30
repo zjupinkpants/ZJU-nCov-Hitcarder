@@ -90,9 +90,9 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
    
    由于在 .github\workflows\main.yml 中设置了代码有更新就触发运行，刚刚更改代码时可能就已经运行了几次。如果打卡成功，你将收到“打卡成功”的钉钉/微信消息，如果打卡失败或者今日已打卡，你将收到“打卡失败”。在项目的 Actions 一栏中可以看到每一次运行的log，点击右上角的 Re-run jobs 重新运行：
 
-   <img src="docs/actions_log_1.png" width=100 height=100 img>
+   <img src="docs/actions_logs_1.png" width=100 height=100 img>
 
-   <img src="docs/actions_log_2.png" width=100 height=100 img>
+   <img src="docs/actions_logs_2.png" width=100 height=100 img>
 
 
 ## Thanks
