@@ -23,7 +23,7 @@ jobs:
       env:
         USERNAME: ${{ secrets.ZJU_USERNAME }}
         PASSWORD: ${{ secrets.ZJU_PASSWORD }}
-        # DINGTALK_TOKEN: ${{ secrets.DINGTALK_TOKEN }}
+        DINGTALK_TOKEN: ${{ secrets.DINGTALK_TOKEN }}
         # PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
         # SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
       run: python ./main.py
