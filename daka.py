@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-import requests
-import json
-import re
-import time
-import datetime
-import os
-import sys
+import requests,json,re
+import time,datetime
+import os,sys
 import send_message
 
 
