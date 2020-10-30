@@ -22,7 +22,9 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
    
    在项目的 Settings-Secrets 中添加 `ZJU_USERNAME`，内容为浙大通行证账号（学号），添加`ZJU_PASSWORD`，内容为浙大通行证密码。
 
-   <img src="docs/secrets_zju_password.png" width=100 height=100 img>
+   <img src="docs/zju_account.png" width=500 height=300 img>
+
+   <img src="docs/zju_password.png" width=500 height=300 img>
 
 3. 配置定运行时间
    
