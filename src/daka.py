@@ -163,14 +163,20 @@ if __name__ == "__main__":
     else:
         msg = '打卡失败'
 
-    if 'INPUT_DINGTALK_TOKEN' in os.environ:
+    try:
         send_message.send_dingtalk_message(
             msg, os.environ['INPUT_DINGTALK_TOKEN'])
+    except:
+        print('send_dingtalk_message_error')
 
-    if 'INPUT_SERVERCHAN_KEY' in os.environ:
+    try:
         send_message.send_serverChan_message(
             msg, '', os.environ['INPUT_SERVERCHAN_KEY'])
+    except:
+        print('send_serverChan_message_error')
 
-    if 'INPUT_PUSHPLUS_TOKEN' in os.environ:
+    try:
         send_message.send_pushplus_message(
             msg, '', os.environ['INPUT_PUSHPLUS_TOKEN'])
+    except:
+        print('send_pushplus_message_error')

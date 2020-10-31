@@ -22,6 +22,6 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
          pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
 ```
 
-# Smaple Repository
+# Sample Repository
 
 https://github.com/Long0x0/ZJU-nCov-Hitcarder-Sample
