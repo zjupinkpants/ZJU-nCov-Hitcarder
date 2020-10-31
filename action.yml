@@ -1,0 +1,30 @@
+name: zju-ncov-hitcarder-action
+description: ZJU-nCov-HitCarder Action.
+author: Long0x0
+
+branding:
+  icon: mail
+  color: blue
+
+inputs:
+  username:
+    description: zju account username(student id).
+    required: true
+  password:
+    description: zju account password.
+    required: true
+  dingtalk_token:
+    description: dingtalk_token.
+    required: false
+    default: ''
+  serverchan_key:
+    description: serverchan_key.
+    required: false
+    default: ''
+  pushplus_token:
+    description: pushplus_token.
+    required: false
+    default: ''
+runs:
+  using: docker
+  image: src/Dockerfile
