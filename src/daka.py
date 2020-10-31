@@ -155,22 +155,22 @@ def main(username, password):
 
 
 if __name__ == "__main__":
-    username = os.environ['USERNAME']
-    password = os.environ['PASSWORD']
+    username = os.environ['INPUT_USERNAME']
+    password = os.environ['INPUT_PASSWORD']
 
     if main(username, password):
         msg = '打卡成功'
     else:
         msg = '打卡失败'
 
-    if 'DINGTALK_TOKEN' in os.environ:
+    if 'INPUT_DINGTALK_TOKEN' in os.environ:
         send_message.send_dingtalk_message(
-            msg, os.environ['DINGTALK_TOKEN'])
+            msg, os.environ['INPUT_DINGTALK_TOKEN'])
 
-    if 'SERVERCHAN_KEY' in os.environ:
+    if 'INPUT_SERVERCHAN_KEY' in os.environ:
         send_message.send_serverChan_message(
-            msg, '', os.environ['SERVERCHAN_KEY'])
+            msg, '', os.environ['INPUT_SERVERCHAN_KEY'])
 
-    if 'PUSHPLUS_TOKEN' in os.environ:
+    if 'INPUT_PUSHPLUS_TOKEN' in os.environ:
         send_message.send_pushplus_message(
-            msg, '', os.environ['PUSHPLUS_TOKEN'])
+            msg, '', os.environ['INPUT_PUSHPLUS_TOKEN'])
