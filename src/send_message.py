@@ -3,6 +3,9 @@ import json
 
 
 def send_dingtalk_message(msg, dingtalk_token):
+    if not dingtalk_token:
+        return False
+
     dingtalk_url = 'https://oapi.dingtalk.com/robot/send?access_token='+dingtalk_token
     data = {
         "msgtype": "text",
@@ -21,6 +24,9 @@ def send_dingtalk_message(msg, dingtalk_token):
 
 
 def send_pushplus_message(title, content, pushplus_token):
+    if not pushplus_token:
+        return False
+
     pushplus_url = 'http://pushplus.hxtrip.com/customer/push/send'
     data = {
         "token": pushplus_token,
@@ -35,7 +41,9 @@ def send_pushplus_message(title, content, pushplus_token):
 
 
 def send_serverChan_message(text, desp, serverChan_key):
+    if not serverChan_key:
+        return False
+
     r = requests.get("https://sc.ftqq.com/" + serverChan_key
                      + ".send?text=" + text + "&desp=" + desp).json()
     return r["errno"] == 0
-
