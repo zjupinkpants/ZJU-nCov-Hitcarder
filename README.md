@@ -8,7 +8,7 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 ```yml
 - name: Working
-   uses: Long0x0/zju-ncov-hitcarder-action@0.0.1
+   uses: Long0x0/zju-ncov-hitcarder@0.0.x
       with:
          # zju account username(student  id).
          username: ${{ secrets.ZJU_USERNAME }}
