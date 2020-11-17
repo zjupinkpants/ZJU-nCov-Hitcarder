@@ -7,7 +7,7 @@ if __name__ == "__main__":
     username = os.environ['INPUT_USERNAME']
     password = os.environ['INPUT_PASSWORD']
 
-    if daka.main(username, password):
+    if daka.main(username, password) or daka.main(username, password):
         msg = '打卡成功'
     else:
         msg = '打卡失败'
