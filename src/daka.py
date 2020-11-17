@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 import json
 import re
 import time
@@ -26,13 +28,22 @@ class DaKa(object):
         self.login_url = "https://zjuam.zju.edu.cn/cas/login?service=https%3A%2F%2Fhealthreport.zju.edu.cn%2Fa_zju%2Fapi%2Fsso%2Findex%3Fredirect%3Dhttps%253A%252F%252Fhealthreport.zju.edu.cn%252Fncov%252Fwap%252Fdefault%252Findex"
         self.base_url = "https://healthreport.zju.edu.cn/ncov/wap/default/index"
         self.save_url = "https://healthreport.zju.edu.cn/ncov/wap/default/save"
+
+        # requests.adapters.DEFAULT_RETRIES = 5
         self.sess = requests.Session()
+        self.sess.keep_alive = False
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        self.sess.mount('http://', adapter)
+        self.sess.mount('https://', adapter)
 
     def login(self):
         """Login to ZJU platform"""
+        time.sleep(1)
         res = self.sess.get(self.login_url)
         execution = re.search(
             'name="execution" value="(.*?)"', res.text).group(1)
+        time.sleep(1)
         res = self.sess.get(
             url='https://zjuam.zju.edu.cn/cas/v2/getPubKey').json()
         n, e = res['modulus'], res['exponent']
@@ -44,6 +55,7 @@ class DaKa(object):
             'execution': execution,
             '_eventId': 'submit'
         }
+        time.sleep(1)
         res = self.sess.post(url=self.login_url, data=data)
 
         # check if login successfully
@@ -53,6 +65,7 @@ class DaKa(object):
 
     def post(self):
         """Post the hitcard info"""
+        time.sleep(1)
         res = self.sess.post(self.save_url, data=self.info)
         return json.loads(res.text)
 
@@ -64,6 +77,7 @@ class DaKa(object):
     def get_info(self, html=None):
         """Get hitcard info, which is the old info with updated new time."""
         if not html:
+            time.sleep(1)
             res = self.sess.get(self.base_url)
             html = res.content.decode()
 
@@ -145,7 +159,7 @@ def main(username, password):
     try:
         res = dk.post()
         print(res)
-        if str(res['e']) == '0':
+        if str(res['e']) == '0' or str(res['m']) == '今天已经填报了':
             print('打卡成功')
             return True
         else:
