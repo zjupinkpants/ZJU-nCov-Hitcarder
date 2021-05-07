@@ -1,70 +1,77 @@
-# ZJU-nCov-Hitcarder
+# ZJU-nCov-Hitcarder (with Github Action)
 
-浙大nCov肺炎健康打卡定时自动脚本
+浙大nCov肺炎健康打卡定时自动脚本 
 
- - 可定时，默认为每天6点5分
+ - 使用 Github Action 实现定时打卡，无需本地运行或服务器
+ - 可配置完成打卡的微信/钉钉消息提醒
  - 默认每次提交上次所提交的内容（只有时间部分更新）
- - 系统表单如有更新，在当天自行手机打卡，后面会自动按照你更新后的选项继续打卡
-
- 项目用于学习交流，仅用于各项无异常时打卡，如有身体不适等情况还请自行如实打卡~
-
-<img src="https://github.com/Tishacy/ZJU-nCov-Hitcarder/raw/master/demo.png" width="500px"/>
-
-> 感谢[conv1d](https://github.com/conv1d)同学，已使用requests直接登录浙大统一认证平台，不再依赖phantomjs
+ - 增加了系统表单更新提醒
 
 ## Usage
 
-1. clone本项目（为了加快clone速度，可以指定clone深度`--depth 1`，只克隆最近一次commit），并cd到本目录
-    ```bash
-    $ git clone https://github.com/Tishacy/ZJU-nCov-Hitcarder.git --depth 1
-    $ cd ZJU-nCov-Hitcarder
-    ```
-    
-2. 安装依赖
+1. fork
 
-    ```bash
-    $ pip3 install -r requirements.txt
-    ```
+2. 配置定时运行时间
+   
+   在 .github\workflows\action.yml 中更改时间：
+   ```yml
+   on:
+   workflow_dispatch:
+   schedule:
+      - cron: '0 23 * * *'
+   ```
+   `0 23 * * *`表示UTC时间23:00，即北京时间7:00打卡（经测试，实际运行时间比设定时间晚几分钟到几十分钟）。
+   
+3. 配置帐号
+   
+   Settings > Secrets > New repository secrets， 添加 `ZJU_USERNAME`，内容为浙大通行证账号（学号），添加`ZJU_PASSWORD`，内容为浙大通行证密码。
 
-3. 将config.json.templ模板文件重命名为config.json文件，并修改 config.json中的配置
-  
-    ```javascript
-    {
-        "username": "你的浙大统一认证平台用户名",
-        "password": "你的浙大统一认证平台密码",
-        "schedule": {
-            "hour": "6",    // 6点
-            "minute": "5"   // 5分 
-        }
-    }
-    ```
+4. 配置提醒方式（任选一种）
+   
+   <details>
+     <summary>钉钉群机器人（推荐）</summary>
 
-4. 启动定时自动打卡脚本
+     - PC端钉钉 > 新手体验群 > 群设置 > 智能群助手 > 添加机器人 > 自定义，名字随便填，安全设置选择`自定义关键字`，填`打卡`，然后下一步复制Webhook。
 
-   ```bash
-   $ python3 hitcarder.py
+     - Settings > Secrets > New repository secrets， 添加`DINGTALK_TOKEN`，内容为刚才复制的Webhook中 `access_token=` 后面的内容。
+
+   </details>
+   
+   <details>
+     <summary>微信ServerChan（不再推荐）</summary>
+ 
+     - 前往 http://sc.ftqq.com/3.version ，按首页的提示用GitHub账号登录，绑定微信，即可获得SCKEY。
+
+     - Settings > Secrets > New repository secrets， 添加`SERVERCHAN_KEY`，内容为刚才复制的SCKEY。
+
+   </details>
+   
+   <details>
+     <summary>微信pushplus</summary>
+
+     - 前往 https://pushplus.hxtrip.com ，微信扫码，点击激活消息，复制token。
+
+     - Settings > Secrets > New repository secrets， 添加`PUSHPLUS_TOKEN`，内容为刚才复制的token。
+
+   </details>
+
+5. 配置多人打卡（可选）
+
+   在 .github\workflows\action.yml 中添加一组，自行添加对应的Secrets。
+
+   ```yml
+      - username: ZJU_USERNAME
+        password: ZJU_PASSWORD
+        dingtalk_token: DINGTALK_TOKEN
+        pushplus_token: PUSHPLUS_TOKEN
+        serverchan_key: SERVERCHAN_KEY
+      - username: ZJU_USERNAME2
+        password: ZJU_PASSWORD2
+        dingtalk_token: DINGTALK_TOKEN2
+        pushplus_token: PUSHPLUS_TOKEN2
+        serverchan_key: SERVERCHAN_KEY2
    ```
 
-
-## Tips
-
-- 为了防止电脑休眠或关机时程序不运行，推荐把这个部署到VPS上
-- 测试程序是否正常运行：可以先把定的时间放在最近的一个时间（比如下一分钟）看下到时间是否可以正常打卡
-- 想指定自己打卡地理位置的童鞋可以参考[8#issue](https://github.com/Tishacy/ZJU-nCov-Hitcarder/issues/8#issue-565719250)
-
-
-## Thanks
-
-感谢贡献者
-
-<a href="https://github.com/conv1d"><img src="https://avatars2.githubusercontent.com/u/24759956" width="100px" height="100px"></a>
-
-
-## LICENSE
-
-Copyright (c) 2020 tishacy.
-
-Licensed under the [MIT License](https://github.com/Tishacy/ZJU-nCov-Hitcarder/blob/master/LICENSE)
-
-
-
+6. 测试
+   
+   Actions > ZJU-nCov-Hitcarder Action > Enable workflow > Run workflow。
