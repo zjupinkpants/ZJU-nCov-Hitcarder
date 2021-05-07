@@ -30,8 +30,13 @@ runs:
   using: "composite"
   steps:
     - name: Working
+      env:
+        USERNAME: ${{ inputs.username }}
+        PASSWORD: ${{ inputs.password }}
+        DINGTALK_TOKEN: ${{ inputs.dingtalk_token }}
+        SERVERCHAN_KEY: ${{ inputs.serverchan_key }}
+        PUSHPLUS_TOKEN: ${{ inputs.pushplus_token }}
       run: |
-        printenv | sed 's;=.*;;' | sort
         pip install -r ${{ github.action_path }}/requirements.txt
         python3 ${{ github.action_path }}/hitcarder.py
       shell: bash

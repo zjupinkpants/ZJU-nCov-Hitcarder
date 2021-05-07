@@ -44,17 +44,17 @@ def serverchan(text, desp, serverchan_key):
 
 if __name__ == "__main__":
     msg = "打卡"*1000
-    dingtalk_token = os.environ.get('INPUT_DINGTALK_TOKEN')
+    dingtalk_token = os.environ.get('DINGTALK_TOKEN')
     if dingtalk_token:
         ret = dingtalk(msg, dingtalk_token)
         print('send_dingtalk_message', ret)
 
-    serverchan_key = os.environ.get('INPUT_SERVERCHAN_KEY')
+    serverchan_key = os.environ.get('SERVERCHAN_KEY')
     if serverchan_key:
         ret = serverchan(msg, '', serverchan_key)
         print('send_serverChan_message', ret)
 
-    pushplus_token = os.environ.get('INPUT_PUSHPLUS_TOKEN')
+    pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
     if pushplus_token:
         ret = pushplus(msg, '', pushplus_token)
         print('send_pushplus_message', ret)
