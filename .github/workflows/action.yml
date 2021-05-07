@@ -36,4 +36,4 @@ jobs:
         PUSHPLUS_TOKEN: ${{ secrets[matrix.pushplus_token] }}
         SERVERCHAN_KEY: ${{ secrets[matrix.serverchan_key] }}
       run: |
-        python ./main.py
+        python ./hitcarder.py
