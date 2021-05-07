@@ -31,6 +31,6 @@ runs:
   steps:
     - name: Working
       run: |
-        pip install -r ${{ github.action_path }}/src/requirements.txt
-        python3 ${{ github.action_path }}/src/hitcarder.py
+        pip install -r ${{ github.action_path }}/requirements.txt
+        python3 ${{ github.action_path }}/hitcarder.py
       shell: bash
