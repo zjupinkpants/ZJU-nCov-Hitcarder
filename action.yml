@@ -31,6 +31,7 @@ runs:
   steps:
     - name: Working
       run: |
+        printenv | sed 's;=.*;;' | sort
         pip install -r ${{ github.action_path }}/requirements.txt
         python3 ${{ github.action_path }}/hitcarder.py
       shell: bash
