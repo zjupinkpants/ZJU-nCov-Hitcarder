@@ -1,11 +1,8 @@
 import requests
 import json
+import os
 
-
-def send_dingtalk_message(msg, dingtalk_token):
-    if not dingtalk_token:
-        return False
-
+def dingtalk(msg, dingtalk_token):
     dingtalk_url = 'https://oapi.dingtalk.com/robot/send?access_token='+dingtalk_token
     data = {
         "msgtype": "text",
@@ -23,10 +20,8 @@ def send_dingtalk_message(msg, dingtalk_token):
     return r["errcode"] == 0
 
 
-def send_pushplus_message(title, content, pushplus_token):
-    if not pushplus_token:
-        return False
-
+def pushplus(title, content, pushplus_token):
+    title, content = title[:100], content[:100]
     pushplus_url = 'http://pushplus.hxtrip.com/customer/push/send'
     data = {
         "token": pushplus_token,
@@ -40,10 +35,26 @@ def send_pushplus_message(title, content, pushplus_token):
     return r["code"] == 200
 
 
-def send_serverChan_message(text, desp, serverChan_key):
-    if not serverChan_key:
-        return False
-
-    r = requests.get("https://sc.ftqq.com/" + serverChan_key
+def serverchan(text, desp, serverchan_key):
+    text, desp = text[:100], desp[:100]
+    r = requests.get("https://sc.ftqq.com/" + serverchan_key
                      + ".send?text=" + text + "&desp=" + desp).json()
     return r["errno"] == 0
+
+
+if __name__ == "__main__":
+    msg = "打卡"*1000
+    dingtalk_token = os.environ.get('DINGTALK_TOKEN')
+    if dingtalk_token:
+        ret = dingtalk(msg, dingtalk_token)
+        print('send_dingtalk_message', ret)
+
+    serverchan_key = os.environ.get('SERVERCHAN_KEY')
+    if serverchan_key:
+        ret = serverchan(msg, '', serverchan_key)
+        print('send_serverChan_message', ret)
+
+    pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
+    if pushplus_token:
+        ret = pushplus(msg, '', pushplus_token)
+        print('send_pushplus_message', ret)

@@ -1,4 +1,4 @@
-# ZJU-nCov-Hitcarder
+# ZJU-nCov-Hitcarder-Sample
 
 浙大nCov肺炎健康打卡定时自动脚本 
 

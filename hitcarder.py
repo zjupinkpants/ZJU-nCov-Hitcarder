@@ -8,10 +8,10 @@ import time
 import datetime
 import os
 import sys
+import message
 
-
-class DaKa(object):
-    """Hit card class
+class HitCarder(object):
+    """Hit carder class
 
     Attributes:
         username: (str) 浙大统一认证平台用户名（一般为学号）
@@ -28,8 +28,6 @@ class DaKa(object):
         self.login_url = "https://zjuam.zju.edu.cn/cas/login?service=https%3A%2F%2Fhealthreport.zju.edu.cn%2Fa_zju%2Fapi%2Fsso%2Findex%3Fredirect%3Dhttps%253A%252F%252Fhealthreport.zju.edu.cn%252Fncov%252Fwap%252Fdefault%252Findex"
         self.base_url = "https://healthreport.zju.edu.cn/ncov/wap/default/index"
         self.save_url = "https://healthreport.zju.edu.cn/ncov/wap/default/save"
-
-        # requests.adapters.DEFAULT_RETRIES = 5
         self.sess = requests.Session()
         self.sess.keep_alive = False
         retry = Retry(connect=3, backoff_factor=0.5)
@@ -41,11 +39,9 @@ class DaKa(object):
         """Login to ZJU platform"""
         time.sleep(1)
         res = self.sess.get(self.login_url)
-        execution = re.search(
-            'name="execution" value="(.*?)"', res.text).group(1)
+        execution = re.search('name="execution" value="(.*?)"', res.text).group(1)
         time.sleep(1)
-        res = self.sess.get(
-            url='https://zjuam.zju.edu.cn/cas/v2/getPubKey').json()
+        res = self.sess.get(url='https://zjuam.zju.edu.cn/cas/v2/getPubKey').json()
         n, e = res['modulus'], res['exponent']
         encrypt_password = self._rsa_encrypt(self.password, e, n)
 
@@ -64,33 +60,53 @@ class DaKa(object):
         return self.sess
 
     def post(self):
-        """Post the hitcard info"""
+        """Post the hit card info."""
         time.sleep(1)
         res = self.sess.post(self.save_url, data=self.info)
         return json.loads(res.text)
 
     def get_date(self):
-        """Get current date"""
-        today = datetime.date.today()
+        """Get current date."""
+        today = datetime.datetime.utcnow() + datetime.timedelta(hours=+8)
         return "%4d%02d%02d" % (today.year, today.month, today.day)
 
+    def check_form(self):
+        """Get hitcard form, compare with old form """
+        res = self.sess.get(self.base_url)
+        html = res.content.decode()
+
+        try:
+            new_form = re.findall(r'<ul>[\s\S]*?</ul>', html)[0]
+        except IndexError as _:
+            raise RegexMatchError('Relative info not found in html with regex')
+
+        with open("form.txt", "r", errors = "ignore") as f:
+            if new_form == f.read():
+                return True
+        return False
+
     def get_info(self, html=None):
-        """Get hitcard info, which is the old info with updated new time."""
+        """Get hit card info, which is the old info with updated new time."""
         if not html:
             time.sleep(1)
             res = self.sess.get(self.base_url)
             html = res.content.decode()
 
         try:
-            old_info = json.loads(re.findall(r'oldInfo: ({[^\n]+})', html)[0])
+            old_infos = re.findall(r'oldInfo: ({[^\n]+})', html)
+            if len(old_infos) != 0:
+                old_info = json.loads(old_infos[0])
+            else:
+                raise RegexMatchError("未发现缓存信息，请先至少手动成功打卡一次再运行脚本")
+
             new_info_tmp = json.loads(re.findall(r'def = ({[^\n]+})', html)[0])
             new_id = new_info_tmp['id']
             name = re.findall(r'realname: "([^\"]+)",', html)[0]
             number = re.findall(r"number: '([^\']+)',", html)[0]
-        except IndexError as _:
-            raise RegexMatchError('Relative info not found in html with regex')
-        except json.decoder.JSONDecodeError as _:
-            raise DecodeError('JSON decode error')
+        except IndexError as err:
+            raise RegexMatchError('Relative info not found in html with regex: ' + str(err))
+        except json.decoder.JSONDecodeError as err:
+            raise DecodeError('JSON decode error: ' + str(err))
 
         new_info = old_info.copy()
         new_info['id'] = new_id
@@ -99,7 +115,15 @@ class DaKa(object):
         new_info["date"] = self.get_date()
         new_info["created"] = round(time.time())
         # form change
+        new_info['jrdqjcqk'] = ""
         new_info['jrdqtlqk'] = []
+        new_info['sfsqhzjkk'] = 1
+        new_info['sqhzjkkys'] = 1
+        new_info['sfqrxxss'] = 1
+        new_info['szgjcs'] = ""
+        new_info['zgfx14rfhsj'] = ""
+        new_info['gwszdd'] = ""
+        new_info['jcqzrq'] = ""
 
         self.info = new_info
         return new_info
@@ -113,7 +137,7 @@ class DaKa(object):
         return hex(result_int)[2:].rjust(128, '0')
 
 
-# Exceptions
+# Exceptions 
 class LoginError(Exception):
     """Login Exception"""
     pass
@@ -137,46 +161,65 @@ def main(username, password):
         password: (str) 浙大统一认证平台密码
     """
 
-    dk = DaKa(username, password)
+    hit_carder = HitCarder(username, password)
     print("[Time] %s" % datetime.datetime.now().strftime(
         '%Y-%m-%d %H:%M:%S'))
+    print(datetime.datetime.utcnow() + datetime.timedelta(hours=+8))
     print("打卡任务启动")
 
     try:
-        dk.login()
+        hit_carder.login()
         print('已登录到浙大统一身份认证平台')
     except Exception as err:
-        print(str(err))
-        return False
+        return 1, '打卡登录失败：' + str(err)
 
     try:
-        dk.get_info()
-        print('%s 同学, 你好~' % (dk.info['number']))
+        ret = hit_carder.check_form()
+        if not ret:
+            return 2, '打卡信息已改变，请手动打卡'
     except Exception as err:
-        print('获取信息失败，请手动打卡，更多信息: ' + str(err))
-        return False
+        return 1, '获取信息失败，请手动打卡: ' + str(err)
 
     try:
-        res = dk.post()
+        hit_carder.get_info()
+    except Exception as err:
+        return 1, '获取信息失败，请手动打卡: ' + str(err)
+
+    try:
+        res = hit_carder.post()
         print(res)
-        if str(res['e']) == '0' or str(res['m']) == '今天已经填报了':
-            print('打卡成功')
-            return True
+        if str(res['e']) == '0':
+            return 0, '打卡成功'
+        elif str(res['m']) == '今天已经填报了':
+            return 0, '今天已经打卡'
         else:
-            print('打卡失败')
-            return False
+            return 1, '打卡失败'
     except:
-        print('数据提交失败')
-        return False
+        return 1, '打卡数据提交失败'
 
 
 if __name__ == "__main__":
-    username = os.environ['INPUT_USERNAME']
-    password = os.environ['INPUT_PASSWORD']
+    username = os.environ['USERNAME']
+    password = os.environ['PASSWORD']
 
-    if main(username, password):
-        msg = '打卡成功'
-    else:
-        msg = '打卡失败'
+    ret, msg = main(username, password)
+    print(ret, msg)
+    if ret == 1:
+        time.sleep(5)
+        ret, msg = main(username, password)
+        print(ret, msg)
 
-    print(msg)
+    dingtalk_token = os.environ.get('DINGTALK_TOKEN')
+    if dingtalk_token:
+        ret = message.dingtalk(msg, dingtalk_token)
+        print('send_dingtalk_message', ret)
+
+    serverchan_key = os.environ.get('SERVERCHAN_KEY')
+    if serverchan_key:
+        ret = message.serverchan(msg, '', serverchan_key)
+        print('send_serverChan_message', ret)
+
+    pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
+    if pushplus_token:
+        ret = message.pushplus(msg, '', pushplus_token)
+        print('send_pushplus_message', ret)
