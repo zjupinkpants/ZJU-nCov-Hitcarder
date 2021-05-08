@@ -1,6 +1,10 @@
-# ZJU-nCov-Hitcarder (with Github Action)
+# ZJU-nCov-Hitcarder-Sample
 
-浙大nCov肺炎健康打卡定时自动脚本 
+Sample for https://github.com/Long0x0/ZJU-nCov-Hitcarder.
+
+浙大nCov肺炎健康打卡定时自动脚本
+
+forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hitcarder)
 
  - 使用 Github Action 实现定时打卡，无需本地运行或服务器
  - 可配置完成打卡的微信/钉钉消息提醒
@@ -10,8 +14,8 @@
 
 ## Usage
 
-1. fork
-
+1. fork，或自己新建repo并创建 `.github\workflows\action.yml` 和 `monthly.yml`。
+   
 2. 配置定时运行时间
    
    在 .github\workflows\action.yml 中更改时间：
@@ -21,7 +25,7 @@
    schedule:
       - cron: '0 23 * * *'
    ```
-   `0 23 * * *`表示UTC时间23:00，即北京时间7:00打卡（经测试，实际运行时间比设定时间晚几分钟到几十分钟）。
+   `0 23 * * *`表示UTC 23:00，即北京时间7:00打卡（经测试，实际运行时间比设定时间晚几分钟到几十分钟）。
    
 3. 配置帐号
    
@@ -48,7 +52,7 @@
    </details>
    
    <details>
-     <summary>微信pushplus</summary>
+     <summary>微信pushplus（不再推荐）</summary>
 
      - 前往 https://pushplus.hxtrip.com ，微信扫码，点击激活消息，复制token。
 
@@ -76,3 +80,7 @@
 6. 测试
    
    Actions > ZJU-nCov-Hitcarder Action > Enable workflow > Run workflow。
+
+7. 停用
+
+   Actions > ZJU-nCov-Hitcarder Action > Disable workflow。
