@@ -1,107 +1,107 @@
 <ul>
                         <li>
                             <div class="text">
-                                <span>½ñÈÕÈÕÆÚ Date<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                <span>ä»Šæ—¥æ—¥æœŸ Date<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
                                 <input v-model="date" readonly type="text" placeholder=""></div>
                         </li>
                         <li>
                             <div class="text">
-                                <span>ĞÕÃû Name<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                <span>å§“å Name<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
                                 <input v-model="realname" readonly type="text" placeholder=""></div>
                         </li>
                         <li>
                             <div class="text">
-                                <span>Ñ§¹¤ºÅ Student/Staff ID No.<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                <span>å­¦å·¥å· Student/Staff ID No.<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
                                 <input v-model="number" readonly type="text" placeholder=""></div>
                         </li>
 
                         <li>
-                            <div name="sfyxjzxgym" class="radio"><span>ÊÇ·ñÒâÏò½ÓÖÖ?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfyxjzxgym" class="radio"><span>æ˜¯å¦æ„å‘æ¥ç§?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfyxjzxgym=1"><span :class="{active: info.sfyxjzxgym==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfyxjzxgym=0"><span :class="{active: (info.sfyxjzxgym===0 || info.sfyxjzxgym==='0')}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.sfyxjzxgym=1"><span :class="{active: info.sfyxjzxgym==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfyxjzxgym=0"><span :class="{active: (info.sfyxjzxgym===0 || info.sfyxjzxgym==='0')}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div name="sfbyjzrq" class="radio"><span>ÊÇ·ñÊÇ²»ÒË½ÓÖÖÈËÈº?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfbyjzrq" class="radio"><span>æ˜¯å¦æ˜¯ä¸å®œæ¥ç§äººç¾¤?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfbyjzrq=1"><span :class="{active: info.sfbyjzrq==1}"><i></i></span> <span>¶ÔÒßÃç³É·Ö¹ıÃô</span></div>
-                                    <div @click="info.sfbyjzrq=2"><span :class="{active: info.sfbyjzrq==2}"><i></i></span> <span>»¼¼±ĞÔ¼²²¡Õß</span></div>
-                                    <div @click="info.sfbyjzrq=3"><span :class="{active: info.sfbyjzrq==3}"><i></i></span> <span>´¦ÓÚÂıĞÔ¼²²¡µÄ¼±ĞÔ·¢×÷ÆÚÕß</span></div>
-                                    <div @click="info.sfbyjzrq=4"><span :class="{active: info.sfbyjzrq==4}"><i></i></span> <span>ÈÑÉïÆÚ¸¾Å®</span></div>
-                                    <div @click="info.sfbyjzrq=5"><span :class="{active: info.sfbyjzrq==5}"><i></i></span> <span>·ñ</span></div>
+                                    <div @click="info.sfbyjzrq=1"><span :class="{active: info.sfbyjzrq==1}"><i></i></span> <span>å¯¹ç–«è‹—æˆåˆ†è¿‡æ•</span></div>
+                                    <div @click="info.sfbyjzrq=2"><span :class="{active: info.sfbyjzrq==2}"><i></i></span> <span>æ‚£æ€¥æ€§ç–¾ç—…è€…</span></div>
+                                    <div @click="info.sfbyjzrq=3"><span :class="{active: info.sfbyjzrq==3}"><i></i></span> <span>å¤„äºæ…¢æ€§ç–¾ç—…çš„æ€¥æ€§å‘ä½œæœŸè€…</span></div>
+                                    <div @click="info.sfbyjzrq=4"><span :class="{active: info.sfbyjzrq==4}"><i></i></span> <span>å¦Šå¨ æœŸå¦‡å¥³</span></div>
+                                    <div @click="info.sfbyjzrq=5"><span :class="{active: info.sfbyjzrq==5}"><i></i></span> <span>å¦</span></div>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div name="jzxgymqk" class="radio"><span>µ±Ç°½ÓÖÖÇé¿ö<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="jzxgymqk" class="radio"><span>å½“å‰æ¥ç§æƒ…å†µ<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.jzxgymqk=1"><span :class="{active: info.jzxgymqk==1}"><i></i></span> <span>ÒÑ½ÓÖÖµÚÒ»Õë</span></div>
-                                    <div @click="info.jzxgymqk=2"><span :class="{active: info.jzxgymqk==2}"><i></i></span> <span>ÒÑÍê³É½ÓÖÖ</span></div>
-                                    <div @click="info.jzxgymqk=3"><span :class="{active: info.jzxgymqk==3}"><i></i></span> <span>Î´½ÓÖÖ</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li>
-                            <div name="sffrqjwdg" class="radio"><span>½ñÈÕÊÇ·ñÒò·¢ÈÈÇë¼ÙÎ´µ½¸Ú£¨½ÌÖ°¹¤£©»òÎ´·µĞ££¨Ñ§Éú£©£¿ Are you on leave due to fever?<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sffrqjwdg=1"><span :class="{active: info.sffrqjwdg==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sffrqjwdg=0"><span :class="{active: (info.sffrqjwdg===0 || info.sffrqjwdg==='0')}"><i></i></span> <span>·ñ No</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div name="sfqtyyqjwdg" class="radio"><span>½ñÈÕÊÇ·ñÒò·¢ÈÈÍâµÄÆäËûÔ­ÒòÇë¼ÙÎ´µ½¸Ú£¨½ÌÖ°¹¤£©»òÎ´·µĞ££¨Ñ§Éú£©£¿ Are you on leave due to other symptoms except fever?<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sfqtyyqjwdg=1"><span :class="{active: info.sfqtyyqjwdg==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfqtyyqjwdg=0"><span :class="{active: (info.sfqtyyqjwdg===0 || info.sfqtyyqjwdg==='0')}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.jzxgymqk=1"><span :class="{active: info.jzxgymqk==1}"><i></i></span> <span>å·²æ¥ç§ç¬¬ä¸€é’ˆ</span></div>
+                                    <div @click="info.jzxgymqk=2"><span :class="{active: info.jzxgymqk==2}"><i></i></span> <span>å·²å®Œæˆæ¥ç§</span></div>
+                                    <div @click="info.jzxgymqk=3"><span :class="{active: info.jzxgymqk==3}"><i></i></span> <span>æœªæ¥ç§</span></div>
                                 </div>
                             </div>
                         </li>
 
-                        <li>
-                            <div name="tw" class="radio"><span>½ñÈÕÊÇ·ñÓĞ·¢ÈÈÖ¢×´£¨¸ßÓÚ37.2 ¡æ£©£¿ Do you have a fever(above 37.2¡æ) today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
 
-                                    <div @click="info.tw='1'"><span :class="{active: info.tw==='1'}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.tw='0'"><span :class="{active: info.tw==='0'}"><i></i></span> <span>·ñ No</span></div>
+                        <li>
+                            <div name="sffrqjwdg" class="radio"><span>ä»Šæ—¥æ˜¯å¦å› å‘çƒ­è¯·å‡æœªåˆ°å²—ï¼ˆæ•™èŒå·¥ï¼‰æˆ–æœªè¿”æ ¡ï¼ˆå­¦ç”Ÿï¼‰ï¼Ÿ Are you on leave due to fever?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div>
+                                    <div @click="info.sffrqjwdg=1"><span :class="{active: info.sffrqjwdg==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sffrqjwdg=0"><span :class="{active: (info.sffrqjwdg===0 || info.sffrqjwdg==='0')}"><i></i></span> <span>å¦ No</span></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div name="sfqtyyqjwdg" class="radio"><span>ä»Šæ—¥æ˜¯å¦å› å‘çƒ­å¤–çš„å…¶ä»–åŸå› è¯·å‡æœªåˆ°å²—ï¼ˆæ•™èŒå·¥ï¼‰æˆ–æœªè¿”æ ¡ï¼ˆå­¦ç”Ÿï¼‰ï¼Ÿ Are you on leave due to other symptoms except fever?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div>
+                                    <div @click="info.sfqtyyqjwdg=1"><span :class="{active: info.sfqtyyqjwdg==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfqtyyqjwdg=0"><span :class="{active: (info.sfqtyyqjwdg===0 || info.sfqtyyqjwdg==='0')}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
 
                         <li>
-                            <div name="sfyqjzgc" class="radio"><span>½ñÈÕÊÇ·ñ±»µ±µØ¹ÜÀí²¿ÃÅÒªÇóÔÚ¼¯ÖĞ¸ôÀëµãÒ½Ñ§¹Û²ì£¿ Have you been isolated by the local authorities at centralized isolation point for medical observation today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="tw" class="radio"><span>ä»Šæ—¥æ˜¯å¦æœ‰å‘çƒ­ç—‡çŠ¶ï¼ˆé«˜äº37.2 â„ƒï¼‰ï¼Ÿ Do you have a fever(above 37.2â„ƒ) today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfyqjzgc=1"><span :class="{active: info.sfyqjzgc==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfyqjzgc=0"><span :class="{active: info.sfyqjzgc==0}"><i></i></span> <span>·ñ No</span></div>
+
+                                    <div @click="info.tw='1'"><span :class="{active: info.tw==='1'}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.tw='0'"><span :class="{active: info.tw==='0'}"><i></i></span> <span>å¦ No</span></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div name="sfyqjzgc" class="radio"><span>ä»Šæ—¥æ˜¯å¦è¢«å½“åœ°ç®¡ç†éƒ¨é—¨è¦æ±‚åœ¨é›†ä¸­éš”ç¦»ç‚¹åŒ»å­¦è§‚å¯Ÿï¼Ÿ Have you been isolated by the local authorities at centralized isolation point for medical observation today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div>
+                                    <div @click="info.sfyqjzgc=1"><span :class="{active: info.sfyqjzgc==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfyqjzgc=0"><span :class="{active: info.sfyqjzgc==0}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div name="sfcyglq" class="radio"><span @click="titlebtn()">½ñÈÕÊÇ·ñ¾Ó¼Ò¸ôÀë¹Û²ì£¨¾Ó¼Ò·Ç¸ôÀë×´Ì¬Ìî·ñ£©? Have you been in self-isolation at home today (select No if you are just stay at home but not isolated)?<i class="icon iconfont icon-shuoming"></i><em>£¨µã»÷²é¿´¾Ó¼Ò¸ôÀë¹Û²ì¶¨Òå click to read the definition of it£©</em></span>
+                            <div name="sfcyglq" class="radio"><span @click="titlebtn()">ä»Šæ—¥æ˜¯å¦å±…å®¶éš”ç¦»è§‚å¯Ÿï¼ˆå±…å®¶ééš”ç¦»çŠ¶æ€å¡«å¦ï¼‰? Have you been in self-isolation at home today (select No if you are just stay at home but not isolated)?<i class="icon iconfont icon-shuoming"></i><em>ï¼ˆç‚¹å‡»æŸ¥çœ‹å±…å®¶éš”ç¦»è§‚å¯Ÿå®šä¹‰ click to read the definition of itï¼‰</em></span>
                                 <div>
-                                    <div @click="info.sfcyglq=1"><span :class="{active: info.sfcyglq==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfcyglq=0"><span :class="{active: info.sfcyglq==0}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.sfcyglq=1"><span :class="{active: info.sfcyglq==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfcyglq=0"><span :class="{active: info.sfcyglq==0}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
 
 <!--                        <li v-if="info.sfcyglq==1">-->
-<!--                            <div name="gllx" class="radio"><span>¹Û²ì³¡Ëù<i class="icon iconfont icon-shuoming"></i><em></em></span>-->
+<!--                            <div name="gllx" class="radio"><span>è§‚å¯Ÿåœºæ‰€<i class="icon iconfont icon-shuoming"></i><em></em></span>-->
 <!--                                <div>-->
-<!--                                    <div @click="info.gllx='Ñ§Ğ£¼ÒÊôÔº'"><span :class="{active: info.gllx=='Ñ§Ğ£¼ÒÊôÔº'}"><i></i></span> <span>Ñ§Ğ£¼ÒÊôÔº</span></div>-->
-<!--                                    <div @click="info.gllx='Ñ§Ğ£¼¯ÖĞ¸ôÀëµã'"><span :class="{active: info.gllx=='Ñ§Ğ£¼¯ÖĞ¸ôÀëµã'}"><i></i></span> <span>Ñ§Ğ£¼¯ÖĞ¸ôÀëµã</span></div>-->
-<!--                                    <div @click="info.gllx='º¼ÖİĞ£Íâ¾Ó×¡µØ'"><span :class="{active: info.gllx=='º¼ÖİĞ£Íâ¾Ó×¡µØ'}"><i></i></span> <span>º¼ÖİĞ£Íâ¾Ó×¡µØ</span></div>-->
-<!--                                    <div @click="info.gllx='º¼ÍâµØÇø¼¯ÖĞ¸ôÀëµã'"><span :class="{active: info.gllx=='º¼ÍâµØÇø¼¯ÖĞ¸ôÀëµã'}"><i></i></span> <span>º¼ÍâµØÇø¼¯ÖĞ¸ôÀëµã</span></div>-->
+<!--                                    <div @click="info.gllx='å­¦æ ¡å®¶å±é™¢'"><span :class="{active: info.gllx=='å­¦æ ¡å®¶å±é™¢'}"><i></i></span> <span>å­¦æ ¡å®¶å±é™¢</span></div>-->
+<!--                                    <div @click="info.gllx='å­¦æ ¡é›†ä¸­éš”ç¦»ç‚¹'"><span :class="{active: info.gllx=='å­¦æ ¡é›†ä¸­éš”ç¦»ç‚¹'}"><i></i></span> <span>å­¦æ ¡é›†ä¸­éš”ç¦»ç‚¹</span></div>-->
+<!--                                    <div @click="info.gllx='æ­å·æ ¡å¤–å±…ä½åœ°'"><span :class="{active: info.gllx=='æ­å·æ ¡å¤–å±…ä½åœ°'}"><i></i></span> <span>æ­å·æ ¡å¤–å±…ä½åœ°</span></div>-->
+<!--                                    <div @click="info.gllx='æ­å¤–åœ°åŒºé›†ä¸­éš”ç¦»ç‚¹'"><span :class="{active: info.gllx=='æ­å¤–åœ°åŒºé›†ä¸­éš”ç¦»ç‚¹'}"><i></i></span> <span>æ­å¤–åœ°åŒºé›†ä¸­éš”ç¦»ç‚¹</span></div>-->
 <!--                                </div>-->
 <!--                            </div>-->
 <!--                        </li>-->
                         <li v-if="info.sfcyglq==1">
                             <div class="text">
-                                <span>¹Û²ì¿ªÊ¼Ê±¼ä The start time<i class="icon iconfont icon-shuoming"></i></span>
+                                <span>è§‚å¯Ÿå¼€å§‹æ—¶é—´ The start time<i class="icon iconfont icon-shuoming"></i></span>
                                 <input name="glksrq" v-model="info.glksrq" type="date" placeholder=""></div>
                         </li>
 
@@ -109,38 +109,38 @@
 
 
                         <li>
-                            <div name="sfcxzysx" class="radio"><span>ÊÇ·ñÓĞÈÎºÎÓëÒßÇéÏà¹ØµÄ£¬ÖµµÃ×¢ÒâµÄÇé¿ö£¿ Do you have any situation related to the epidemic that deserves attention?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfcxzysx" class="radio"><span>æ˜¯å¦æœ‰ä»»ä½•ä¸ç–«æƒ…ç›¸å…³çš„ï¼Œå€¼å¾—æ³¨æ„çš„æƒ…å†µï¼Ÿ Do you have any situation related to the epidemic that deserves attention?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfcxzysx=1"><span :class="{active: info.sfcxzysx==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfcxzysx=0"><span :class="{active: info.sfcxzysx==0}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.sfcxzysx=1"><span :class="{active: info.sfcxzysx==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfcxzysx=0"><span :class="{active: info.sfcxzysx==0}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
                         <li v-if="info.sfcxzysx==1">
-                            <div class="multiText"><span>Çé¿öËµÃ÷ Situation explanation<i class="icon iconfont icon-shuoming"></i></span>
+                            <div class="multiText"><span>æƒ…å†µè¯´æ˜ Situation explanation<i class="icon iconfont icon-shuoming"></i></span>
                                 <div><textarea v-model="info.qksm" name="qksm" rows="" cols="" placeholder=""></textarea></div>
                             </div>
                         </li>
                         <li v-if="info.sfcxzysx==1">
-                            <div class="multiText"><span>ÆäËûĞÅÏ¢ Other information<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                            <div class="multiText"><span>å…¶ä»–ä¿¡æ¯ Other information<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
                                 <div><textarea v-model="info.remark" name="remark" rows="" cols="" placeholder=""></textarea></div>
                             </div>
                         </li>
                          <li>
-                                <div name="sfsqhzjkk" class="radio"><span>ÊÇ·ñÒÑ¾­ÉêÁìĞ£ÇøËùÔÚµØ½¡¿µÂë£¿Have you got the health code of the city where the campus is located£¿<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div name="sfsqhzjkk" class="radio"><span>æ˜¯å¦å·²ç»ç”³é¢†æ ¡åŒºæ‰€åœ¨åœ°å¥åº·ç ï¼ŸHave you got the health code of the city where the campus is locatedï¼Ÿ<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
-                                        <div @click="info.sfsqhzjkk='1'"><span :class="{active: info.sfsqhzjkk==='1'}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                        <div @click="info.sfsqhzjkk='0'"><span :class="{active: info.sfsqhzjkk==='0'}"><i></i></span> <span>·ñ No</span></div>
+                                        <div @click="info.sfsqhzjkk='1'"><span :class="{active: info.sfsqhzjkk==='1'}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                        <div @click="info.sfsqhzjkk='0'"><span :class="{active: info.sfsqhzjkk==='0'}"><i></i></span> <span>å¦ No</span></div>
                                     </div>
                                 </div>
                             </li>
                              <li v-if="info.sfsqhzjkk==1">
-                                <div name="sqhzjkkys" class="radio"><span>½ñÈÕÉêÁìĞ£ÇøËùÔÚµØ½¡¿µÂëµÄÑÕÉ«£¿What's the color of today's health code£¿<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div name="sqhzjkkys" class="radio"><span>ä»Šæ—¥ç”³é¢†æ ¡åŒºæ‰€åœ¨åœ°å¥åº·ç çš„é¢œè‰²ï¼ŸWhat's the color of today's health codeï¼Ÿ<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
-                                        <div @click="info.sqhzjkkys=1"><span :class="{active: info.sqhzjkkys==1}"><i></i></span> <span>ÂÌÂë Green code</span></div>
-                                        <div @click="info.sqhzjkkys=2"><span :class="{active: info.sqhzjkkys==2}"><i></i></span> <span>ºìÂë Red code</span></div>
-                                        <div @click="info.sqhzjkkys=3"><span :class="{active: info.sqhzjkkys==3}"><i></i></span> <span>»ÆÂë Yellow code</span></div>
-                                        <div @click="info.sqhzjkkys=4"><span :class="{active: info.sqhzjkkys==4}"><i></i></span> <span>³ÈÂë Orange code</span></div>
+                                        <div @click="info.sqhzjkkys=1"><span :class="{active: info.sqhzjkkys==1}"><i></i></span> <span>ç»¿ç  Green code</span></div>
+                                        <div @click="info.sqhzjkkys=2"><span :class="{active: info.sqhzjkkys==2}"><i></i></span> <span>çº¢ç  Red code</span></div>
+                                        <div @click="info.sqhzjkkys=3"><span :class="{active: info.sqhzjkkys==3}"><i></i></span> <span>é»„ç  Yellow code</span></div>
+                                        <div @click="info.sqhzjkkys=4"><span :class="{active: info.sqhzjkkys==4}"><i></i></span> <span>æ©™ç  Orange code</span></div>
                                         
                                     </div>
                                 </div>
@@ -148,129 +148,129 @@
 
 
                         <li>
-                            <div name="sfzx" class="radio"><span>½ñÈÕÊÇ·ñÔÚĞ££¿ Are you on campus today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfzx" class="radio"><span>ä»Šæ—¥æ˜¯å¦åœ¨æ ¡ï¼Ÿ Are you on campus today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="setSfzx('1')"><span :class="{active: info.sfzx==='1'}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="setSfzx('0')"><span :class="{active: info.sfzx==='0'}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="setSfzx('1')"><span :class="{active: info.sfzx==='1'}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="setSfzx('0')"><span :class="{active: info.sfzx==='0'}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
 
                         <li v-if="showFxyy" style="display: none;">
-                            <div class="multiText"><span>·µĞ£Ô­Òò<i class="icon iconfont icon-shuoming"></i></span>
+                            <div class="multiText"><span>è¿”æ ¡åŸå› <i class="icon iconfont icon-shuoming"></i></span>
                                 <div><textarea v-model="info.fxyy" name="fxyy" rows="" cols="" placeholder=""></textarea></div>
                             </div>
                         </li>
 
                         <li>
-                            <div name="sfzgn" class="radio"><span>ËùÔÚµØµã Your Location<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfzgn" class="radio"><span>æ‰€åœ¨åœ°ç‚¹ Your Location<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="setSfzgn(1)"><span :class="{active: sfzgn==1}"><i></i></span> <span>¾³ÄÚ in Chinese Mainland</span></div>
-                                    <div @click="setSfzgn(0)"><span :class="{active: sfzgn==0}"><i></i></span> <span>¾³Íâ outside Chinese Mainland</span></div>
+                                    <div @click="setSfzgn(1)"><span :class="{active: sfzgn==1}"><i></i></span> <span>å¢ƒå†… in Chinese Mainland</span></div>
+                                    <div @click="setSfzgn(0)"><span :class="{active: sfzgn==0}"><i></i></span> <span>å¢ƒå¤– outside Chinese Mainland</span></div>
                                 </div>
                             </div>
                         </li>
                         <li v-show="!ipCtrl1 && sfzgn == 0" name="dwszgj">
                             <div class="text" @click="mapInit()">
-                                <span>ËùÔÚµØµã£¨Çë´ò¿ªÊÖ»úÎ»ÖÃ¹¦ÄÜ£¬²¢ÔÚÊÖ»úÈ¨ÏŞÉèÖÃÖĞÑ¡ÔñÔÊĞí·ÃÎÊÎ»ÖÃĞÅÏ¢£©Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="szgjcs" v-model="info.szgjcs" readonly type="text" placeholder="µã»÷»ñÈ¡µØÀíÎ»ÖÃ(Click to get your location)"></div>
+                                <span>æ‰€åœ¨åœ°ç‚¹ï¼ˆè¯·æ‰“å¼€æ‰‹æœºä½ç½®åŠŸèƒ½ï¼Œå¹¶åœ¨æ‰‹æœºæƒé™è®¾ç½®ä¸­é€‰æ‹©å…è®¸è®¿é—®ä½ç½®ä¿¡æ¯ï¼‰Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
+                                <input name="szgjcs" v-model="info.szgjcs" readonly type="text" placeholder="ç‚¹å‡»è·å–åœ°ç†ä½ç½®(Click to get your location)"></div>
                         </li>
                         <li v-show="ipCtrl1 && sfzgn == 0">
                             <div class="text">
                                 <div class="hcqbtn-wrap">
                                     <select class="hcqbtn" name="szgj" id="szgj">
-                                        <option value="">ÇëÑ¡ÔñËùÔÚµØÇø/¹ú¼Ò</option>
+                                        <option value="">è¯·é€‰æ‹©æ‰€åœ¨åœ°åŒº/å›½å®¶</option>
                                         <option v-for='p in country' :value="p.name">{{p.name}} {{p.ename}}</option>
                                     </select>
-                                    <input v-model="info.gwszgzcs" type="text" placeholder="ËùÔÚ³ÇÊĞ City" class="hcqbtn" name="gwszgzcs">
+                                    <input v-model="info.gwszgzcs" type="text" placeholder="æ‰€åœ¨åŸå¸‚ City" class="hcqbtn" name="gwszgzcs">
 
                                 </div>
                             </div>
                         </li>
                         <li v-show="!ipCtrl && sfzgn == 1">
                             <div name="area" class="text" style="cursor: pointer" @click="getLocation()">
-                                <span>ËùÔÚµØµã£¨Çë´ò¿ªÊÖ»úÎ»ÖÃ¹¦ÄÜ£¬²¢ÔÚÊÖ»úÈ¨ÏŞÉèÖÃÖĞÑ¡ÔñÔÊĞí·ÃÎÊÎ»ÖÃĞÅÏ¢£©Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
-                                <input v-model="info.area" readonly type="text" placeholder="µã»÷»ñÈ¡µØÀíÎ»ÖÃ Click to get geographic location"></div>
+                                <span>æ‰€åœ¨åœ°ç‚¹ï¼ˆè¯·æ‰“å¼€æ‰‹æœºä½ç½®åŠŸèƒ½ï¼Œå¹¶åœ¨æ‰‹æœºæƒé™è®¾ç½®ä¸­é€‰æ‹©å…è®¸è®¿é—®ä½ç½®ä¿¡æ¯ï¼‰Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
+                                <input v-model="info.area" readonly type="text" placeholder="ç‚¹å‡»è·å–åœ°ç†ä½ç½® Click to get geographic location"></div>
                         </li>
 
                         <li v-show="ipCtrl && sfzgn == 1" name="ip">
                             <div class="text">
                                 <div class="hcqbtn-wrap">
                                     <select class="hcqbtn hcqbtn-danger" v-model='jtszd.myprovice' @change="handleChangeCity()">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='p in Allprovice' :value="p.name">{{p.name}}</option>
                                     </select>
 
                                     <select class="hcqbtn hcqbtn-warning" v-model='jtszd.mycity' @change="handleChangeArea()">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='c in Allcity' :value="c.name">{{c.name}}</option>
                                     </select>
                                     <select class="hcqbtn hcqbtn-primary" v-model="jtszd.myarea" v-if="Allarea.length>0" @change="handleChange()">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='a in Allarea' :value="a">{{a}}</option>
                                     </select>
                                 </div>
                             </div>
                         </li>
                         <li v-if="info.ismoved == 1">
-                            <div name="bztcyy" class="radio"><span>µ±Ç°µØµãÓëÉÏ´Î²»ÔÚÍ¬Ò»³ÇÊĞ£¬Ô­ÒòÈçÏÂ Current location is different from last time£¬why£¿<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="bztcyy" class="radio"><span>å½“å‰åœ°ç‚¹ä¸ä¸Šæ¬¡ä¸åœ¨åŒä¸€åŸå¸‚ï¼ŒåŸå› å¦‚ä¸‹ Current location is different from last timeï¼Œwhyï¼Ÿ<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.bztcyy=2"><span :class="{active: info.bztcyy==2}"><i></i></span> <span>Ì½Ç× Visit relatives</span></div>
-                                    <div @click="info.bztcyy=3"><span :class="{active: info.bztcyy==3}"><i></i></span> <span>ÂÃÓÎ Travel</span></div>
-                                    <div @click="info.bztcyy=4"><span :class="{active: info.bztcyy==4}"><i></i></span> <span>»Ø¼Ò Return home</span></div>
-                                    <div @click="info.bztcyy=5"><span :class="{active: info.bztcyy==5}"><i></i></span> <span>·µĞ£ Return to school</span></div>
-                                    <div @click="info.bztcyy=6"><span :class="{active: info.bztcyy==6}"><i></i></span> <span>³ö²î On a business trip</span></div>
-                                    <div @click="info.bztcyy=1"><span :class="{active: info.bztcyy==1}"><i></i></span> <span>ÆäËû Others</span></div>
+                                    <div @click="info.bztcyy=2"><span :class="{active: info.bztcyy==2}"><i></i></span> <span>æ¢äº² Visit relatives</span></div>
+                                    <div @click="info.bztcyy=3"><span :class="{active: info.bztcyy==3}"><i></i></span> <span>æ—…æ¸¸ Travel</span></div>
+                                    <div @click="info.bztcyy=4"><span :class="{active: info.bztcyy==4}"><i></i></span> <span>å›å®¶ Return home</span></div>
+                                    <div @click="info.bztcyy=5"><span :class="{active: info.bztcyy==5}"><i></i></span> <span>è¿”æ ¡ Return to school</span></div>
+                                    <div @click="info.bztcyy=6"><span :class="{active: info.bztcyy==6}"><i></i></span> <span>å‡ºå·® On a business trip</span></div>
+                                    <div @click="info.bztcyy=1"><span :class="{active: info.bztcyy==1}"><i></i></span> <span>å…¶ä»– Others</span></div>
                                 </div>
                             </div>
                         </li>
                         <li style="display: none;">
-                            <div name="jrdqtlqk" class="radio"><span>ÄãÊÇ·ñ´ÓÒÔÏÂµØÇø·µ»ØÕã½­£¨º¬¾­Í££©? Did you return to Zhejiang from the following areas (including stopovers)£¿<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="jrdqtlqk" class="radio"><span>ä½ æ˜¯å¦ä»ä»¥ä¸‹åœ°åŒºè¿”å›æµ™æ±Ÿï¼ˆå«ç»åœï¼‰? Did you return to Zhejiang from the following areas (including stopovers)ï¼Ÿ<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-<!--                                    <div @click="getdqtlqk('1')"><span :class="{active: info.jrdqtlqk.indexOf('1')>-1}"><i></i></span> <span>Îäºº Wuhan</span></div>-->
-<!--                                    <div @click="getdqtlqk('2')"><span :class="{active: info.jrdqtlqk.indexOf('2')>-1}"><i></i></span> <span>ºş±±£¨³ıÎäºº£© Hubei (non-Wuhan regions)</span></div>-->
-<!--                                    <div @click="getdqtlqk('3')"><span :class="{active: info.jrdqtlqk.indexOf('3')>-1}"><i></i></span> <span>¹ş¶û±õÊĞ Harbin</span></div>-->
-<!--                                    <div @click="getdqtlqk('4')"><span :class="{active: info.jrdqtlqk.indexOf('4')>-1}"><i></i></span> <span>Ëç·ÒºÓÊĞ Suifenhe</span></div>-->
-<!--                                    <div @click="getdqtlqk('5')"><span :class="{active: info.jrdqtlqk.indexOf('5')>-1}"><i></i></span> <span>ÂúÖŞÀïÊĞ Manzhouli</span></div>-->
-<!--                                    <div @click="getdqtlqk('6')"><span :class="{active: info.jrdqtlqk.indexOf('6')>-1}"><i></i></span> <span>¹ãÖİÊĞ Guangzhou</span></div>-->
-<!--                                    <div @click="getdqtlqk('7')"><span :class="{active: info.jrdqtlqk.indexOf('7')>-1}"><i></i></span> <span>ÉîÛÚÊĞ Shenzhen</span></div>-->
-<!--                                    <div @click="getdqtlqk('8')"><span :class="{active: info.jrdqtlqk.indexOf('8')>-1}"><i></i></span> <span>½ÒÑôÊĞ Jieyang</span></div>-->
-<!--                                    <div @click="getdqtlqk('9')"><span :class="{active: info.jrdqtlqk.indexOf('9')>-1}"><i></i></span> <span>¼ªÁÖÊĞ Jilin</span></div>-->
-<!--                                    <div @click="getdqtlqk('10')"><span :class="{active: info.jrdqtlqk.indexOf('10')>-1}"><i></i></span> <span>±±¾©ÊĞ Beijing</span></div>-->
-                                    <div @click="getdqtlqk('11')"><span :class="{active: info.jrdqtlqk.indexOf('11')>-1}"><i></i></span> <span>7ÔÂ10ÈÕºó´ÓÎÚÂ³Ä¾Æë·µ»Ø Urumchi after July 10th</span></div>
-<!--                                    <div @click="getdqtlqk('12')"><span :class="{active: info.jrdqtlqk.indexOf('12')>-1}"><i></i></span> <span>7ÔÂ15ÈÕºó´Ó´óÁ¬·µ»Ø Dalian after July 15th</span></div>-->
-                                    <div @click="getdqtlqk('13')"><span :class="{active: info.jrdqtlqk.indexOf('13')>-1}"><i></i></span> <span>8ÔÂ15ÈÕºó´ÓÉÇÎ²ÊĞÂ½·áÊĞ·µ»ØLufeng after Augest 15th</span></div>
-                                    <div @click="getdqtlqk('0')"><span :class="{active: info.jrdqtlqk.indexOf('0')>-1}"><i></i></span> <span>·ñ None of the above</span></div>
+<!--                                    <div @click="getdqtlqk('1')"><span :class="{active: info.jrdqtlqk.indexOf('1')>-1}"><i></i></span> <span>æ­¦æ±‰ Wuhan</span></div>-->
+<!--                                    <div @click="getdqtlqk('2')"><span :class="{active: info.jrdqtlqk.indexOf('2')>-1}"><i></i></span> <span>æ¹–åŒ—ï¼ˆé™¤æ­¦æ±‰ï¼‰ Hubei (non-Wuhan regions)</span></div>-->
+<!--                                    <div @click="getdqtlqk('3')"><span :class="{active: info.jrdqtlqk.indexOf('3')>-1}"><i></i></span> <span>å“ˆå°”æ»¨å¸‚ Harbin</span></div>-->
+<!--                                    <div @click="getdqtlqk('4')"><span :class="{active: info.jrdqtlqk.indexOf('4')>-1}"><i></i></span> <span>ç»¥èŠ¬æ²³å¸‚ Suifenhe</span></div>-->
+<!--                                    <div @click="getdqtlqk('5')"><span :class="{active: info.jrdqtlqk.indexOf('5')>-1}"><i></i></span> <span>æ»¡æ´²é‡Œå¸‚ Manzhouli</span></div>-->
+<!--                                    <div @click="getdqtlqk('6')"><span :class="{active: info.jrdqtlqk.indexOf('6')>-1}"><i></i></span> <span>å¹¿å·å¸‚ Guangzhou</span></div>-->
+<!--                                    <div @click="getdqtlqk('7')"><span :class="{active: info.jrdqtlqk.indexOf('7')>-1}"><i></i></span> <span>æ·±åœ³å¸‚ Shenzhen</span></div>-->
+<!--                                    <div @click="getdqtlqk('8')"><span :class="{active: info.jrdqtlqk.indexOf('8')>-1}"><i></i></span> <span>æ­é˜³å¸‚ Jieyang</span></div>-->
+<!--                                    <div @click="getdqtlqk('9')"><span :class="{active: info.jrdqtlqk.indexOf('9')>-1}"><i></i></span> <span>å‰æ—å¸‚ Jilin</span></div>-->
+<!--                                    <div @click="getdqtlqk('10')"><span :class="{active: info.jrdqtlqk.indexOf('10')>-1}"><i></i></span> <span>åŒ—äº¬å¸‚ Beijing</span></div>-->
+                                    <div @click="getdqtlqk('11')"><span :class="{active: info.jrdqtlqk.indexOf('11')>-1}"><i></i></span> <span>7æœˆ10æ—¥åä»ä¹Œé²æœ¨é½è¿”å› Urumchi after July 10th</span></div>
+<!--                                    <div @click="getdqtlqk('12')"><span :class="{active: info.jrdqtlqk.indexOf('12')>-1}"><i></i></span> <span>7æœˆ15æ—¥åä»å¤§è¿è¿”å› Dalian after July 15th</span></div>-->
+                                    <div @click="getdqtlqk('13')"><span :class="{active: info.jrdqtlqk.indexOf('13')>-1}"><i></i></span> <span>8æœˆ15æ—¥åä»æ±•å°¾å¸‚é™†ä¸°å¸‚è¿”å›Lufeng after Augest 15th</span></div>
+                                    <div @click="getdqtlqk('0')"><span :class="{active: info.jrdqtlqk.indexOf('0')>-1}"><i></i></span> <span>å¦ None of the above</span></div>
                                 </div>
                             </div>
                         </li>
                         <li v-if="sfzgn== 1">
-                            <div name="sfymqjczrj" class="radio"><span>±¾ÈË¼ÒÍ¥³ÉÔ±(°üÀ¨ÆäËûÃÜÇĞ½Ó´¥ÈËÔ±)ÊÇ·ñÓĞ½ü14ÈÕÈë¾³»ò½ü14ÈÕÄâÈë¾³µÄÇé¿ö£¿Have your family members (including other close contact persons£©entered Chinese Mainland over the past 14 days or plan to enter Chinese Mainland in 14 days?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfymqjczrj" class="radio"><span>æœ¬äººå®¶åº­æˆå‘˜(åŒ…æ‹¬å…¶ä»–å¯†åˆ‡æ¥è§¦äººå‘˜)æ˜¯å¦æœ‰è¿‘14æ—¥å…¥å¢ƒæˆ–è¿‘14æ—¥æ‹Ÿå…¥å¢ƒçš„æƒ…å†µï¼ŸHave your family members (including other close contact personsï¼‰entered Chinese Mainland over the past 14 days or plan to enter Chinese Mainland in 14 days?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfymqjczrj=1"><span :class="{active: info.sfymqjczrj==1}"><i></i></span> <span>ÊÇ Yes£¬Çë¼°Ê±ÏòËùÔÚµ¥Î»±¨¸æÊµ¼ÊÇé¿ö¡£please contact your college/school immediately</span></div>
-                                    <div @click="info.sfymqjczrj=0"><span :class="{active: (info.sfymqjczrj===0 || info.sfymqjczrj === '0')}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.sfymqjczrj=1"><span :class="{active: info.sfymqjczrj==1}"><i></i></span> <span>æ˜¯ Yesï¼Œè¯·åŠæ—¶å‘æ‰€åœ¨å•ä½æŠ¥å‘Šå®é™…æƒ…å†µã€‚please contact your college/school immediately</span></div>
+                                    <div @click="info.sfymqjczrj=0"><span :class="{active: (info.sfymqjczrj===0 || info.sfymqjczrj === '0')}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0">
-                            <div class="multiText"><span>½ü14ÈÕµ½·Ã¹ıµÄ¹ú¼Ò/µØÇø Countries you¡¯ve visited over the past 14 days<i class="icon iconfont icon-shuoming"></i></span>
-                                <div><textarea v-model="info.zjdfgj" name="zjdfgj" rows="" cols="" placeholder="¶à¸öÓÃ¶ººÅ¸ô¿ª£¨ÈçµÂ¹ú£¬ºÉÀ¼£©separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
+                            <div class="multiText"><span>è¿‘14æ—¥åˆ°è®¿è¿‡çš„å›½å®¶/åœ°åŒº Countries youâ€™ve visited over the past 14 days<i class="icon iconfont icon-shuoming"></i></span>
+                                <div><textarea v-model="info.zjdfgj" name="zjdfgj" rows="" cols="" placeholder="å¤šä¸ªç”¨é€—å·éš”å¼€ï¼ˆå¦‚å¾·å›½ï¼Œè·å…°ï¼‰separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0">
-                            <div name="sfyrjjh" class="radio"><span>Î´À´14ÌìÄÚÊÇ·ñÓĞÈë¾³¼Æ»®? Do you have plan to enter Chinese Mainland in the next 14 days?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="sfyrjjh" class="radio"><span>æœªæ¥14å¤©å†…æ˜¯å¦æœ‰å…¥å¢ƒè®¡åˆ’? Do you have plan to enter Chinese Mainland in the next 14 days?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.sfyrjjh=1"><span :class="{active: info.sfyrjjh==1}"><i></i></span> <span>ÊÇ Yes</span></div>
-                                    <div @click="info.sfyrjjh=0"><span :class="{active: info.sfyrjjh==0}"><i></i></span> <span>·ñ No</span></div>
+                                    <div @click="info.sfyrjjh=1"><span :class="{active: info.sfyrjjh==1}"><i></i></span> <span>æ˜¯ Yes</span></div>
+                                    <div @click="info.sfyrjjh=0"><span :class="{active: info.sfyrjjh==0}"><i></i></span> <span>å¦ No</span></div>
                                 </div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div name="cfgj" class="text">
-                                <span>³ö·¢¹ú¼Ò»òµØÇø Departure country or region?<i class="icon iconfont icon-shuoming"></i></span>
+                                <span>å‡ºå‘å›½å®¶æˆ–åœ°åŒº Departure country or region?<i class="icon iconfont icon-shuoming"></i></span>
                                 <div>
                                     <select class="hcqbtn" v-model='info.cfgj' name="cfgj" id="cfgj" style="display: block;width: 100%;">
-                                        <option value="">ÇëÑ¡Ôñ¹ú¼Ò»òµØÇø Scroll down to select country or region</option>
+                                        <option value="">è¯·é€‰æ‹©å›½å®¶æˆ–åœ°åŒº Scroll down to select country or region</option>
                                         <option v-for='p in country' :value="p.name">{{p.name}} {{p.ename}}</option>
                                     </select>
                                 </div>
@@ -278,81 +278,81 @@
                         </li>
 
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
-                            <div class="multiText"><span>Í¾¾­¹ú¼Ò/µØÇø£¨Ö±º½ÌîÎŞ£©Transit Country/region? (Enter ¡°no¡± if direct flights).<i class="icon iconfont icon-shuoming"></i></span>
-                                <div><textarea v-model="info.tjgj" name="tjgj" rows="" cols="" placeholder="¶à¸öÓÃ¶ººÅ¸ô¿ª£¨ÈçµÂ¹ú£¬ºÉÀ¼£©separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
+                            <div class="multiText"><span>é€”ç»å›½å®¶/åœ°åŒºï¼ˆç›´èˆªå¡«æ— ï¼‰Transit Country/region? (Enter â€œnoâ€ if direct flights).<i class="icon iconfont icon-shuoming"></i></span>
+                                <div><textarea v-model="info.tjgj" name="tjgj" rows="" cols="" placeholder="å¤šä¸ªç”¨é€—å·éš”å¼€ï¼ˆå¦‚å¾·å›½ï¼Œè·å…°ï¼‰separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div class="text">
-                                <span>ÄâÈë¾³ÈÕÆÚ£¨±±¾©Ê±¼ä£© Planned date of arrival<i class="icon iconfont icon-shuoming"></i></span>
+                                <span>æ‹Ÿå…¥å¢ƒæ—¥æœŸï¼ˆåŒ—äº¬æ—¶é—´ï¼‰ Planned date of arrival<i class="icon iconfont icon-shuoming"></i></span>
                                 <input name="nrjrq" v-model="info.nrjrq" type="date" placeholder=""></div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div class="text">
-                                <span>Èë¾³¿Ú°¶ Port of Entry<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="rjka" v-model="info.rjka" type="text" placeholder="ÊäÈëÈë¾³¿Ú°¶£¨³ÇÊĞ£© enter port of entry (city)"></div>
+                                <span>å…¥å¢ƒå£å²¸ Port of Entry<i class="icon iconfont icon-shuoming"></i></span>
+                                <input name="rjka" v-model="info.rjka" type="text" placeholder="è¾“å…¥å…¥å¢ƒå£å²¸ï¼ˆåŸå¸‚ï¼‰ enter port of entry (city)"></div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div name="jnmdd" class="text">
-                                <span>¾³ÄÚÄ¿µÄµØ Destination in Chinese Mainland<i class="icon iconfont icon-shuoming"></i></span>
+                                <span>å¢ƒå†…ç›®çš„åœ° Destination in Chinese Mainland<i class="icon iconfont icon-shuoming"></i></span>
                                 <div class="hcqbtn-wrap">
                                     <select class="hcqbtn hcqbtn-danger" v-model='info.jnmddsheng' @change="handleChangeCityt(info.jnmddsheng)">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='p in Allprovice' :value="p.name">{{p.name}}</option>
                                     </select>
 
                                     <select class="hcqbtn hcqbtn-warning" v-model='info.jnmddshi' @change="handleChangeAreat(info.jnmddshi)">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='c in Allcityt' :value="c.name">{{c.name}}</option>
                                     </select>
                                     <select class="hcqbtn hcqbtn-primary" v-model="info.jnmddqu" v-show="Allareat.length>0">
-                                        <option value="">ÇëÑ¡Ôñ</option>
+                                        <option value="">è¯·é€‰æ‹©</option>
                                         <option v-for='a in Allareat' :value="a">{{a}}</option>
                                     </select>
 
                                 </div>
-                                <input name="jnmddxiangxi" v-model="info.jnmddxiangxi" type="text" placeholder="ÏêÏ¸µØÖ· Detailed address" class="hcqbtn-wrap-input">
+                                <input name="jnmddxiangxi" v-model="info.jnmddxiangxi" type="text" placeholder="è¯¦ç»†åœ°å€ Detailed address" class="hcqbtn-wrap-input">
                             </div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
-                            <div name="rjjtfs" class="radio"><span>Èë¾³½»Í¨·½Ê½ Mode of transport by which you enter Chinese Mainland<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="rjjtfs" class="radio"><span>å…¥å¢ƒäº¤é€šæ–¹å¼ Mode of transport by which you enter Chinese Mainland<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.rjjtfs=1"><span :class="{active: info.rjjtfs==1}"><i></i></span> <span>·É»ú By plane</span></div>
-                                    <div @click="info.rjjtfs=2"><span :class="{active: info.rjjtfs == 2}"><i></i></span> <span>»ğ³µ By train</span></div>
-                                    <div @click="info.rjjtfs=4"><span :class="{active: info.rjjtfs == 4}" style="position: relative;top: 0.2rem;"><i></i></span> <span style="position: relative;top: 0.1rem;">ÆäËû Other</span>
-                                    <input name="rjjtfs1" type="text" v-model="info.rjjtfs1" placeholder="ÇëÊäÈë Please enter" class="hcqbtn" style="margin-left: 0.2rem;width: 60%;">
+                                    <div @click="info.rjjtfs=1"><span :class="{active: info.rjjtfs==1}"><i></i></span> <span>é£æœº By plane</span></div>
+                                    <div @click="info.rjjtfs=2"><span :class="{active: info.rjjtfs == 2}"><i></i></span> <span>ç«è½¦ By train</span></div>
+                                    <div @click="info.rjjtfs=4"><span :class="{active: info.rjjtfs == 4}" style="position: relative;top: 0.2rem;"><i></i></span> <span style="position: relative;top: 0.1rem;">å…¶ä»– Other</span>
+                                    <input name="rjjtfs1" type="text" v-model="info.rjjtfs1" placeholder="è¯·è¾“å…¥ Please enter" class="hcqbtn" style="margin-left: 0.2rem;width: 60%;">
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div class="text">
-                                <span>Èë¾³½»Í¨¹¤¾ß°à´Î£¨º½°àºÅ£¬»ğ³µ³µ´Î£© Details of the inbound transportation (Flight number, train number)<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="rjjtgjbc" v-model="info.rjjtgjbc" type="text" placeholder="¶à¸öÓÃ¶ººÅ¸ô¿ª Separate by commas if more than one"></div>
+                                <span>å…¥å¢ƒäº¤é€šå·¥å…·ç­æ¬¡ï¼ˆèˆªç­å·ï¼Œç«è½¦è½¦æ¬¡ï¼‰ Details of the inbound transportation (Flight number, train number)<i class="icon iconfont icon-shuoming"></i></span>
+                                <input name="rjjtgjbc" v-model="info.rjjtgjbc" type="text" placeholder="å¤šä¸ªç”¨é€—å·éš”å¼€ Separate by commas if more than one"></div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
-                            <div name="jnjtfs" class="radio"><span>¾³ÄÚ½»Í¨·½Ê½ Mode of transport in Chinese Mainland <i class="icon iconfont icon-shuoming"></i><em></em></span>
+                            <div name="jnjtfs" class="radio"><span>å¢ƒå†…äº¤é€šæ–¹å¼ Mode of transport in Chinese Mainland <i class="icon iconfont icon-shuoming"></i><em></em></span>
                                 <div>
-                                    <div @click="info.jnjtfs=1"><span :class="{active: info.jnjtfs==1}"><i></i></span> <span>·É»ú By plane</span></div>
-                                    <div @click="info.jnjtfs=2"><span :class="{active: info.jnjtfs == 2}"><i></i></span> <span>»ğ³µ By train</span></div>
-                                    <div @click="info.jnjtfs=3"><span :class="{active: info.jnjtfs == 3}"><i></i></span> <span>Æû³µ By coach</span></div>
-                                    <div @click="info.jnjtfs=4"><span :class="{active: info.jnjtfs == 4}" style="position: relative;top: 0.2rem;"><i></i></span> <span style="position: relative;top: 0.1rem;">ÆäËû Other</span>
-                                        <input name="jnjtfs1" type="text" v-model="info.jnjtfs1" placeholder="ÇëÊäÈë Please enter" class="hcqbtn" style="margin-left: 0.2rem;width: 60%;">
+                                    <div @click="info.jnjtfs=1"><span :class="{active: info.jnjtfs==1}"><i></i></span> <span>é£æœº By plane</span></div>
+                                    <div @click="info.jnjtfs=2"><span :class="{active: info.jnjtfs == 2}"><i></i></span> <span>ç«è½¦ By train</span></div>
+                                    <div @click="info.jnjtfs=3"><span :class="{active: info.jnjtfs == 3}"><i></i></span> <span>æ±½è½¦ By coach</span></div>
+                                    <div @click="info.jnjtfs=4"><span :class="{active: info.jnjtfs == 4}" style="position: relative;top: 0.2rem;"><i></i></span> <span style="position: relative;top: 0.1rem;">å…¶ä»– Other</span>
+                                        <input name="jnjtfs1" type="text" v-model="info.jnjtfs1" placeholder="è¯·è¾“å…¥ Please enter" class="hcqbtn" style="margin-left: 0.2rem;width: 60%;">
                                 </div>
                             </div>
                         </li>
                         <li v-show="sfzgn == 0 && info.sfyrjjh == 1">
                             <div class="text">
-                                <span>¾³ÄÚ½»Í¨¹¤¾ß°à´Î£¨º½°àºÅ£¬»ğ³µ³µ´Î£¬Æû³µÅÆÕÕ£© Transportation details in Chinese Mainland (Flight number, train number, license plate)<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="jnjtgjbc" v-model="info.jnjtgjbc" type="text" placeholder="¶à¸öÓÃ¶ººÅ¸ô¿ª Separate by commas if more than one"></div>
+                                <span>å¢ƒå†…äº¤é€šå·¥å…·ç­æ¬¡ï¼ˆèˆªç­å·ï¼Œç«è½¦è½¦æ¬¡ï¼Œæ±½è½¦ç‰Œç…§ï¼‰ Transportation details in Chinese Mainland (Flight number, train number, license plate)<i class="icon iconfont icon-shuoming"></i></span>
+                                <input name="jnjtgjbc" v-model="info.jnjtgjbc" type="text" placeholder="å¤šä¸ªç”¨é€—å·éš”å¼€ Separate by commas if more than one"></div>
                         </li>
                         <li>
                              <div name="sfqrxxss" class="radio">
                                 <div>
                                     <div @click="info.sfqrxxss = 1"><span  :class="{active: info.sfqrxxss == 1}">
-                                            <i></i></span> <span>±¾ÈË³ĞÅµ£º</br>
-                                        ÉÏÊöĞÅÏ¢ÕæÊµ×¼È·¡£ÈçÓĞ±ä»¯£¬¼°Ê±¸üĞÂÏà¹ØĞÅÏ¢²¢±¨¸æËùÔÚµ¥Î»¡£</br>
-                                        ±¾ÈËÒÑÖªÏş²¢½«×ñÊØÕş¸®ºÍÑ§Ğ£Ïà¹Ø¹æ¶¨£¬ÅäºÏ×öºÃÒßÇé·À¿Ø¹¤×÷¡£</br>
+                                            <i></i></span> <span>æœ¬äººæ‰¿è¯ºï¼š</br>
+                                        ä¸Šè¿°ä¿¡æ¯çœŸå®å‡†ç¡®ã€‚å¦‚æœ‰å˜åŒ–ï¼ŒåŠæ—¶æ›´æ–°ç›¸å…³ä¿¡æ¯å¹¶æŠ¥å‘Šæ‰€åœ¨å•ä½ã€‚</br>
+                                        æœ¬äººå·²çŸ¥æ™“å¹¶å°†éµå®ˆæ”¿åºœå’Œå­¦æ ¡ç›¸å…³è§„å®šï¼Œé…åˆåšå¥½ç–«æƒ…é˜²æ§å·¥ä½œã€‚</br>
                                             I agree:</br>
                                             The above information is true and accurate. In case of changes, I will keep my information updated and report in a timely manner.</br>
                                             I have understood and will abide by the relevant government and University regulations to facilitate the prevention and control of COVID-19 epidemic.</br>
