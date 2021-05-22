@@ -9,6 +9,7 @@ import datetime
 import os
 import sys
 import message
+from fake_useragent import UserAgent
 
 class HitCarder(object):
     """Hit carder class
@@ -34,6 +35,8 @@ class HitCarder(object):
         adapter = HTTPAdapter(max_retries=retry)
         self.sess.mount('http://', adapter)
         self.sess.mount('https://', adapter)
+        ua = UserAgent()
+        self.sess.headers['User-Agent'] = ua.chrome
 
     def login(self):
         """Login to ZJU platform"""
