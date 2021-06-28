@@ -22,6 +22,7 @@ def dingtalk(msg, dingtalk_token):
 
 def pushplus(title, content, pushplus_token):
     title, content = title[:100], content[:100]
+    title = '微信通知服务可能即将下线，请切换到其他通知通道（建议使用钉钉）\n' + title
     pushplus_url = 'http://pushplus.hxtrip.com/customer/push/send'
     data = {
         "token": pushplus_token,
@@ -37,6 +38,7 @@ def pushplus(title, content, pushplus_token):
 
 def serverchan(text, desp, serverchan_key):
     text, desp = text[:100], desp[:100]
+    text = 'Server酱服务即将下线，请切换到其他通知通道（建议使用钉钉）\n' + text
     r = requests.get("https://sc.ftqq.com/" + serverchan_key
                      + ".send?text=" + text + "&desp=" + desp).json()
     return r["errno"] == 0
