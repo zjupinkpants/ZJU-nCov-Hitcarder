@@ -1,2 +1,1 @@
 requests[security]
-fake-useragent

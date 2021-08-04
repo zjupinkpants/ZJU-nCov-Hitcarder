@@ -9,7 +9,6 @@ import datetime
 import os
 import sys
 import message
-# from fake_useragent import UserAgent
 
 
 class HitCarder(object):
