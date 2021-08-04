@@ -9,7 +9,8 @@ import datetime
 import os
 import sys
 import message
-from fake_useragent import UserAgent
+# from fake_useragent import UserAgent
+
 
 class HitCarder(object):
     """Hit carder class
@@ -35,16 +36,20 @@ class HitCarder(object):
         adapter = HTTPAdapter(max_retries=retry)
         self.sess.mount('http://', adapter)
         self.sess.mount('https://', adapter)
-        ua = UserAgent()
-        self.sess.headers['User-Agent'] = ua.chrome
+        # ua = UserAgent()
+        # self.sess.headers['User-Agent'] = ua.chrome
+        self.sess.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'}
 
     def login(self):
         """Login to ZJU platform"""
         time.sleep(1)
         res = self.sess.get(self.login_url)
-        execution = re.search('name="execution" value="(.*?)"', res.text).group(1)
+        execution = re.search(
+            'name="execution" value="(.*?)"', res.text).group(1)
         time.sleep(1)
-        res = self.sess.get(url='https://zjuam.zju.edu.cn/cas/v2/getPubKey').json()
+        res = self.sess.get(
+            url='https://zjuam.zju.edu.cn/cas/v2/getPubKey').json()
         n, e = res['modulus'], res['exponent']
         encrypt_password = self._rsa_encrypt(self.password, e, n)
 
@@ -106,8 +111,17 @@ class HitCarder(object):
             new_id = new_info_tmp['id']
             name = re.findall(r'realname: "([^\"]+)",', html)[0]
             number = re.findall(r"number: '([^\']+)',", html)[0]
+
+            magic_code = re.findall(
+                r'"([0-9a-z]{32})": "([0-9]{10})","([0-9a-z]{32})":"([0-9a-z]{32})"', html)[0]
+            magic_code_group = {
+                magic_code[0]: magic_code[1],
+                magic_code[2]: magic_code[3]
+            }
+
         except IndexError as err:
-            raise RegexMatchError('Relative info not found in html with regex: ' + str(err))
+            raise RegexMatchError(
+                'Relative info not found in html with regex: ' + str(err))
         except json.decoder.JSONDecodeError as err:
             raise DecodeError('JSON decode error: ' + str(err))
 
@@ -127,8 +141,11 @@ class HitCarder(object):
         new_info['zgfx14rfhsj'] = ""
         new_info['gwszdd'] = ""
         new_info['jcqzrq'] = ""
+        new_info['ismoved'] = 0
+        new_info.update(magic_code_group)
 
         self.info = new_info
+        # print(json.dumps(self.info))
         return new_info
 
     def _rsa_encrypt(self, password_str, e_str, M_str):
@@ -140,7 +157,7 @@ class HitCarder(object):
         return hex(result_int)[2:].rjust(128, '0')
 
 
-# Exceptions 
+# Exceptions
 class LoginError(Exception):
     """Login Exception"""
     pass
