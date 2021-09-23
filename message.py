@@ -17,6 +17,7 @@ def dingtalk(msg, dingtalk_token):
 
     r = requests.post(dingtalk_url,
                       data=json.dumps(data), headers=header).json()
+    print(r)
     return r["errcode"] == 0
 
 
