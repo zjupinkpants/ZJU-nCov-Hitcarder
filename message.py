@@ -1,8 +1,10 @@
 import requests
 import json
 import os
+import time
 
-def dingtalk(msg, dingtalk_token):
+
+def dingtalk(msg, dingtalk_token, tries=5):
     dingtalk_url = 'https://oapi.dingtalk.com/robot/send?access_token='+dingtalk_token
     data = {
         "msgtype": "text",
@@ -15,10 +17,17 @@ def dingtalk(msg, dingtalk_token):
     }
     header = {'Content-Type': 'application/json'}
 
-    r = requests.post(dingtalk_url,
-                      data=json.dumps(data), headers=header).json()
-    print(r)
-    return r["errcode"] == 0
+    for _ in range(tries):
+        try:
+            r = requests.post(dingtalk_url,
+                              data=json.dumps(data), headers=header).json()
+            print(r)
+            if r["errcode"] == 0:
+                return True
+        except:
+            pass
+        time.sleep(5)
+    return False
 
 
 def pushplus(title, content, pushplus_token):
